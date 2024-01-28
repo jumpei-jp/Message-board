@@ -65,7 +65,13 @@ class ThreadController extends Controller
      */
     public function update(UpdateThreadRequest $request, Thread $thread)
     {
-        //
+        try {
+            $thread->fill($request->all())->save();
+
+            return response()->json($thread);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 400);
+        }
     }
 
     /**
