@@ -18,6 +18,10 @@ docker-compose up
 docker exec -it laravel bash
 chmod 777 -R storage/
 
+# Reactの設定
+npm install
+cd front
+npm start
 ```
 
 ## ログインコマンド
