@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreThreadRequest;
 use App\Http\Requests\UpdateThreadRequest;
 use App\Models\Thread;
+use Exception;
 
 class ThreadController extends Controller
 {
@@ -30,7 +31,17 @@ class ThreadController extends Controller
      */
     public function store(StoreThreadRequest $request)
     {
-        //
+        try {
+            $thread = new Thread();
+            $thread->user_id = $request->input('user_id');
+            $thread->title = $request->input('title');
+            $thread->body = $request->input('body');
+            $thread->save();
+
+            return response()->json($thread);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
