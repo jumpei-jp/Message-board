@@ -49,7 +49,7 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        //
+        return response()->json($thread);
     }
 
     /**
