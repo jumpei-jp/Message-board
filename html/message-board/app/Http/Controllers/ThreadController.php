@@ -13,7 +13,8 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        //
+        $threads = Thread::all();
+        return response()->json($threads);
     }
 
     /**
