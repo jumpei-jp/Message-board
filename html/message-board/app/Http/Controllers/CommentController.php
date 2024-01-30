@@ -65,7 +65,14 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        try {
+            $comment->body = $request->input('body');
+            $comment->save();
+
+            return response()->json($comment);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'コメントの更新に失敗しました。'], 500);
+        }
     }
 
     /**
