@@ -79,6 +79,13 @@ class ThreadController extends Controller
      */
     public function destroy(Thread $thread)
     {
+        try {
+            $thread->delete();
+
+            return response()->json($thread);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 400);
+        }
         //
     }
 }
