@@ -80,6 +80,12 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        try {
+            $comment->delete();
+
+            return response()->json(['message' => 'コメントを削除しました。']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'コメントの削除に失敗しました。'], 500);
+        }
     }
 }
