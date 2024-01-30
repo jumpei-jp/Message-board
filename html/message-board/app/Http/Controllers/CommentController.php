@@ -29,7 +29,19 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        try {
+            $comment = new Comment([
+                'user_id' => $request->input('user_id'),
+                'thread_id' => $request->input('thread'),
+                'body' => $request->input('body'),
+            ]);
+
+            $comment->save();
+
+            return response()->json($comment, 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'コメントの投稿に失敗しました。'], 500);
+        }
     }
 
     /**
