@@ -1,10 +1,15 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./screens/Home";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'} element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
