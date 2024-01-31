@@ -9,22 +9,8 @@ interface ThreadProps {
   };
 }
 
-const postStyle = {
-  border: "1px solid black",
-  margin: "10px",
-  padding: "10px"
-};
-
 const Thread = ({ thread }: ThreadProps) => {
   return (
-    // <div style={postStyle}>
-    //   <h2>タイトル: {thread.title}</h2>
-    //   <div>
-    //     <p>投稿者id: {thread.user_id}</p>
-    //     <p>投稿日: {thread.created_at}</p>
-    //     <p>編集日時: {thread.updated_at}</p>
-    //   </div>
-    // </div>
     <li>
         <div className="px-4 shadow py-5 sm:px-6">
             <div className="flex items-center justify-between">
