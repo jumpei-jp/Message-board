@@ -5,6 +5,7 @@ Laravel React Message board app
 * Laravel: 10.42.0
 * mysql: 8.0.26
 * PHP: 8.2-apache-buster
+* cssフレームワーク: tailwind CSS3.4.1
 
 ## 環境構築
 ### 初期環境構築
