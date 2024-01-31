@@ -23,10 +23,12 @@ const ThreadList = () => {
 
   return (
     <div>
-      <h1>投稿一覧</h1>
-      {threads.map((thread: Thread) => (
-        <Thread key={thread.id} thread={thread} />
-      ))}
+      <h1 className="mt-4 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-center">投稿一覧</h1>
+      <ul className="bg-white shadow overflow-hidden sm:rounded-md max-w-xl mx-auto mt-16">
+        {threads.map((thread: Thread) => (
+          <Thread key={thread.id} thread={thread} />
+        ))}
+      </ul>
     </div>
   );
 };
