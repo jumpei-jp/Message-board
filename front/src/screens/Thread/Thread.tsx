@@ -74,11 +74,28 @@ const ThreadDetail: React.FC = () => {
     <div>
       {thread && (
         <div>
-          <h1>タイトル: {thread.title}</h1>
-          <p>内容: {thread.body}</p>
-          <p>投稿者: {thread.user_id}</p>
-          <p>投稿時間: {thread.created_at}</p>
-          <p>編集時間: {thread.updated_at}</p>
+          <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white antialiased">
+            <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
+                <article className="shadow mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue">
+                  <div className="mx-10 my-10">
+                    <header className="mb-4 lg:mb-6 not-format">
+                        <address className="flex items-center mb-6 not-italic">
+                            <div className="inline-flex items-center mr-3 text-sm">
+                                <div>
+                                    <a rel="author" className="text-xl font-bold text-gray-900">投稿者: {thread.user_id}</a>
+                                    <p className="text-base text-gray-500 dark:text-gray-400">投稿時間: {thread.created_at}</p>
+                                    <p className="text-base text-gray-500 dark:text-gray-400">編集時間: {thread.updated_at}</p>
+                                </div>
+                            </div>
+                        </address>
+                        <h1 className="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">タイトル: {thread.title}</h1>
+                    </header>
+                    <p className="lead">内容: {thread.body}</p>
+                  </div>
+                </article>
+            </div>
+          </main>
+
           <h2>コメント</h2>
           <ul>
             {comments.map((comment: Comment) => (
