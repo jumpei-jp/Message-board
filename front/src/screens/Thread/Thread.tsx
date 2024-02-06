@@ -96,16 +96,6 @@ const ThreadDetail: React.FC = () => {
             </div>
           </main>
 
-          <h2>コメント</h2>
-          <ul>
-            {comments.map((comment: Comment) => (
-              <li key={comment.id}>
-                <p>コメント: {comment.body}</p>
-                <p>投稿者: {comment.user_id}</p>
-                <p>投稿時間: {comment.created_at}</p>
-              </li>
-            ))}
-          </ul>
           <div className="flex justify-center">
             <div>
               <div className="items-center mb-6">
@@ -132,6 +122,15 @@ const ThreadDetail: React.FC = () => {
               </form>
             </div>
           </div>
+          <ul>
+            {comments.map((comment: Comment) => (
+              <li key={comment.id}>
+                <p>コメント: {comment.body}</p>
+                <p>投稿者: {comment.user_id}</p>
+                <p>投稿時間: {comment.created_at}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
