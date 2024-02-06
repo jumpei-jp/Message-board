@@ -106,18 +106,32 @@ const ThreadDetail: React.FC = () => {
               </li>
             ))}
           </ul>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="body">コメント</label>
-            <input
-              type="text"
-              id="body"
-              name="body"
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              required
-            />
-            <button type="submit">投稿する</button>
-          </form>
+          <div className="flex justify-center">
+            <div>
+              <div className="items-center mb-6">
+                <h2 className="text-lg lg:text-2xl font-bold">Discussion</h2>
+              </div>
+              <form onSubmit={handleSubmit} className="mb-6 w-full">
+                <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border">
+                    <label htmlFor="comment" className="sr-only">Your comment</label>
+                    <textarea
+                      id="body"
+                      name="body"
+                      value={body}
+                      onChange={(e) => setBody(e.target.value)}
+                      rows={6}
+                      className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
+                      placeholder="Write a comment..."
+                      required
+                    />
+                </div>
+                <button
+                  type="submit"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
+                >Post comment</button>
+              </form>
+            </div>
+          </div>
         </div>
       )}
     </div>
